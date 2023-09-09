@@ -3,14 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { SharedModule } from './shared/shared.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { ProductsContainerModule } from './products-container/products-container.module';
+import { ProductsContainerRoutingModule } from './products-container/products-container-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProductsContainerRoutingModule,
+    SharedModule,
+    AuthenticationModule,
+    ProductsContainerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
