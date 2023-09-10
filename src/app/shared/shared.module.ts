@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyPipe } from './pipes/currency.pipe';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 
 @NgModule({
   declarations: [
-    CurrencyPipe
+    CurrencyPipe,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { CurrencyPipe } from './pipes/currency.pipe';
     FormsModule,
     HttpClientModule,
     CurrencyPipe,
+    TruncatePipe
   ]
 })
 export class SharedModule { }

@@ -1,7 +1,26 @@
-<div class="container p-5">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col" *ngFor="let item of productList">
-            <app-item [productItem]="item" (sendItem)="reciveItemDate($event)"></app-item>
-        </div>
+<div class="container p-2">
+  <div class="text-center my-2 p-2">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active pointer text-reset" aria-current="page" (click)="getAll()">All Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer text-reset" (click)="filter('electronics')">Electronics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer text-reset" (click)="filter('jewelery')">Jeweleries</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer text-reset" (click)="filter('men')">men's clothing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer text-reset" (click)="filter('women')">women's clothing</a>
+      </li>
+    </ul>
+  </div>
+  <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 g-4">
+    <div class="col" *ngFor="let item of productList">
+      <app-item [productItem]="item" (sendItem)="reciveItemDate($event)"></app-item>
     </div>
+  </div>
 </div>

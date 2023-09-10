@@ -10,12 +10,14 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { ProductsContainerModule } from './products-container/products-container.module';
 import { ProductsContainerRoutingModule } from './products-container/products-container-routing.module';
 import { CartModule } from './cart/cart.module';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,

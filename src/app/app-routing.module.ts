@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { ProductsListComponent } from './products-container/products-list/products-list.component';
 import { LoginGuardGuard } from './shared/guards/login-guard.guard';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,7 +17,7 @@ const routes: Routes = [
       import('./cart/cart.module').then((m) => m.CartModule), canActivate: [LoginGuardGuard]
 
   },
-  { path: '**', component: ProductsListComponent },
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
