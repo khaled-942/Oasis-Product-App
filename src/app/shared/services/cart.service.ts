@@ -29,12 +29,10 @@ export class CartService {
       this.cartItemlist[this.checkItem].total =
         this.cartItemlist[this.checkItem].quantity *
         this.cartItemlist[this.checkItem].price;
-      // console.log(this.cartItemlist);
     }
 
     this.productQuantity.next(this.cartItemlist);
     this.getTotalPrice();
-    console.log('productQuantity', this.cartItemlist);
   }
 
   getTotalPrice(): number {

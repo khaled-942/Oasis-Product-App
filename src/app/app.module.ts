@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ProductsContainerModule } from './products-container/products-container.module';
 import { ProductsContainerRoutingModule } from './products-container/products-container-routing.module';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductsContainerRoutingModule } from './products-container/products-co
     ProductsContainerRoutingModule,
     SharedModule,
     AuthenticationModule,
-    ProductsContainerModule
+    ProductsContainerModule,
+    CartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

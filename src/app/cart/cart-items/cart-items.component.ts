@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: 'app-cart-items',
+  templateUrl: './cart-items.component.html',
+  styleUrls: ['./cart-items.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartItemsComponent implements OnInit {
   public products: any = [];
   public grandTotal!: number;
   constructor(private cartService: CartService, private route: Router) { }
@@ -31,6 +31,6 @@ export class CartComponent implements OnInit {
     this.cartService.increaseItem(id);
   }
   Checkout() {
-    this.route.navigate([''])
+    this.route.navigate(['cart/checkout'])
   }
 }
