@@ -21,4 +21,7 @@ export class ProductsService {
   paginateData(pageNum:number){
     return this.http.get(`http://localhost:3000/products?_page=${pageNum}&_limit=8`)
   }
+  searchByName(letters:string){
+    return this.http.get(`http://localhost:3000/products?title_like=${letters}`)
+  }
 }

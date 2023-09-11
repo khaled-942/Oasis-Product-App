@@ -14,5 +14,7 @@ export class NavbarComponent implements OnInit {
     this.CartService.cartLengthObserv.subscribe((data) => this.counter = data)
     console.log(this.counter)
   }
-
+  applySearch(val:any){
+    console.log(val.target.value)
+  }
 }
