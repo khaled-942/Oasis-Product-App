@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../shared/services/cart.service';
+import { SearchService } from '../shared/services/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,13 +10,13 @@ import { CartService } from '../shared/services/cart.service';
 })
 export class NavbarComponent implements OnInit {
   counter!: number
-  constructor(private CartService: CartService) { }
+  constructor(private CartService: CartService, private searchText:SearchService, private route:Router) { }
 
   ngOnInit(): void {
-    this.CartService.cartLengthObserv.subscribe((data) => this.counter = data)
-    console.log(this.counter)
+    this.CartService.cartLengthObserv.subscribe((data) => this.counter = data);
   }
   applySearch(val:any){
-    console.log(val.target.value)
+    this.searchText.setSearchText(val.target.value);
+    this.route.navigate(['/store/search'])
   }
 }

@@ -8,6 +8,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { LoaderComponent } from './loader/loader.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { NamesearchComponent } from './namesearch/namesearch.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AlertsComponent } from './alerts/alerts.component';
     ProductsListComponent,
     LoaderComponent,
     AlertsComponent,
+    NamesearchComponent,
   ],
   imports: [
     CommonModule,

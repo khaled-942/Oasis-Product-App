@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SearchService } from 'src/app/shared/services/search.service';
 import { UserLoginService } from 'src/app/shared/services/user-login.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { UserLoginService } from 'src/app/shared/services/user-login.service';
 })
 export class AlertsComponent implements OnInit {
   authrized!: boolean
-  constructor(private userlogin: UserLoginService, private route: Router) { }
+  empty!: boolean;
+  constructor(private userlogin: UserLoginService, private route: Router, private search: SearchService) { }
 
   ngOnInit(): void {
     this.userlogin.userLoginObserv.subscribe((data: any) => { this.authrized = data })
+    this.search.searchItemsobserv.subscribe((data: any) => { data > 0 ? this.empty = false : this.empty = true })
 
   }
   toLogIn() {

@@ -1,0 +1,9 @@
+<app-loader></app-loader>
+<app-alerts></app-alerts>
+<div class="container p-2">
+  <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 g-4">
+    <div class="col" *ngFor="let item of productList">
+      <app-item [productItem]="item" (sendItem)="reciveItemDate($event)"></app-item>
+    </div>
+  </div>
+</div>

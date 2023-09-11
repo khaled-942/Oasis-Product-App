@@ -1,5 +1,8 @@
 <div class="container mt-3">
-  <div class="alert alert-warning" role="alert" (click)="toLogIn()" *ngIf="!authrized">
+  <div class="alert alert-warning pointer" role="alert" (click)="toLogIn()" *ngIf="!authrized">
     You should log-in for more experiences!
+  </div>
+  <div class="alert alert-danger pointer" role="alert" (click)="toLogIn()" *ngIf="empty">
+    There is no items with  this name
   </div>
 </div>

@@ -17,7 +17,6 @@ export class ProductsListComponent implements OnInit {
   constructor(private route: Router, private productsServiece: ProductsService, private paginationPageNum: PaginationService) { }
 
   reciveItemDate(productItem: Product) {
-    console.log('from Parent', productItem);
     this.route.navigate([`store/item/${productItem.id}`])
   }
   ngOnInit(): void {
