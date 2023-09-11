@@ -2,21 +2,21 @@
 <app-alerts></app-alerts>
 <div class="container p-2">
   <div class="text-center my-2 p-2">
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active pointer text-reset" aria-current="page" (click)="getAll()">All Products</a>
+    <ul class="nav justify-content-center" #child>
+      <li class="nav-item" (click)="getAll()">
+        <a class="nav-link active pointer text-reset" aria-current="page" (click)="add($event)" >All Products</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link pointer text-reset" (click)="filter('electronics')">Electronics</a>
+      <li class="nav-item" (click)="filter('electronics')">
+        <a class="nav-link pointer text-reset" (click)="add($event)" >Electronics</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link pointer text-reset" (click)="filter('jewelery')">Jeweleries</a>
+      <li class="nav-item" (click)="filter('jewelery')">
+        <a class="nav-link pointer text-reset" (click)="add($event)" >Jeweleries</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link pointer text-reset" (click)="filter('men')">men's clothing</a>
+      <li class="nav-item" (click)="filter('men')">
+        <a class="nav-link pointer text-reset" (click)="add($event)" >Men's clothing</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link pointer text-reset" (click)="filter('women')">women's clothing</a>
+      <li class="nav-item" (click)="filter('women')">
+        <a class="nav-link pointer text-reset" (click)="add($event)" >Women's clothing</a>
       </li>
     </ul>
   </div>

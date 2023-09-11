@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/shared/interfaces/interfaces';
 import { PaginationService } from 'src/app/shared/services/pagination.service';
@@ -14,6 +14,7 @@ export class ProductsListComponent implements OnInit {
   productList!: Product[];
   pagination: boolean = true;
   PageNum!: number;
+  @ViewChild('child') child = {} as ElementRef;
   constructor(private route: Router, private productsServiece: ProductsService, private paginationPageNum: PaginationService) { }
 
   reciveItemDate(productItem: Product) {
@@ -42,5 +43,9 @@ export class ProductsListComponent implements OnInit {
   toPage(num: number) {
     this.paginationPageNum.setNewPageNumber(num);
     this.productsServiece.paginateData(num).subscribe((data: any) => { this.productList = data })
+  }
+  add(e:any){
+    Array.from(this.child.nativeElement.children).map((ele:any)=>{ele.firstChild.classList.remove('active')})
+    e.target.classList.add('active');
   }
 }
