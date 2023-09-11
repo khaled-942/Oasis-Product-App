@@ -5,6 +5,7 @@ import { CartRoutingModule } from './cart-routing.module';
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProductsContainerModule } from '../products-container/products-container.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     CartRoutingModule,
+    ProductsContainerModule,
     SharedModule
   ],
   exports: [

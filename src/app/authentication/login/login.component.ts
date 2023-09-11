@@ -26,5 +26,4 @@ export class LoginComponent implements OnInit {
     this.route.navigate(['/store']);
     // alert(this.loginForm.value)
   }
-
 }

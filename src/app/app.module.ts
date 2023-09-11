@@ -11,6 +11,8 @@ import { ProductsContainerModule } from './products-container/products-container
 import { ProductsContainerRoutingModule } from './products-container/products-container-routing.module';
 import { CartModule } from './cart/cart.module';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestsInterceptor } from './requests.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
     ProductsContainerModule,
     CartModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:RequestsInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

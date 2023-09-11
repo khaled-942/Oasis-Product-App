@@ -5,8 +5,8 @@ import { ProductsContainerRoutingModule } from './products-container-routing.mod
 import { DetailsComponent } from './details/details.component';
 import { ItemComponent } from './item/item.component';
 import { ProductsListComponent } from './products-list/products-list.component';
-import { CartComponent } from './cart/cart.component';
 import { SharedModule } from '../shared/shared.module';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     DetailsComponent,
     ItemComponent,
     ProductsListComponent,
-    CartComponent
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +24,7 @@ import { SharedModule } from '../shared/shared.module';
     DetailsComponent,
     ItemComponent,
     ProductsListComponent,
-    CartComponent
+    LoaderComponent,
   ]
 })
 export class ProductsContainerModule { }

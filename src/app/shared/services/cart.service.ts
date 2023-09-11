@@ -10,6 +10,8 @@ export class CartService {
   checkItem: any;
   private productQuantity = new BehaviorSubject([]);
   productQuantityObserv = this.productQuantity.asObservable();
+  private cartLength = new BehaviorSubject(0);
+  cartLengthObserv = this.cartLength.asObservable();
 
   constructor() {}
   addtoCart(product: any) {
@@ -79,5 +81,8 @@ export class CartService {
     }
     this.getTotalPrice();
     this.productQuantity.next(this.cartItemlist);
+  }
+  setCartLengthVal(num:number){
+    this.cartLength.next(num);
   }
 }

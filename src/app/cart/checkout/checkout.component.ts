@@ -16,22 +16,14 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.chechOutForm = this.fb.group({
       fname: [null, [Validators.required]],
-      email: [null, [Validators.required]],
-      uname: [null, [Validators.required]],
-      pass: [null, [Validators.required]],
-      cpass: [null, [Validators.required]],
-
-      // start with one input
-      
+      email: [null, [Validators.required,Validators.pattern(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i)]],
+      phone: [null, [Validators.required,Validators.pattern(/^0((13|2[2-4]|3|4[05-8]|5[05]|6[24-689]|8[2468]|9[235-7])\d{7}|1[0125]\d{8})$/gm)]],
       formArrayAddress: this.fb.array([null])
-
-      // start with two input
-
-      // formArrayAddress: this.fb.array([null,[]])
     })
   }
   checkout() {
     this.totalPrice = this.cartService.getTotalPrice();
+    this.cartService.setCartLengthVal(0);
     this.cartService.removeAllCart();
     console.log(this.chechOutForm.value)
     this.route.navigate(['/cart'])
