@@ -7,5 +7,5 @@
       <p class="card-text">price: {{productItem.price | currency}}</p>
     </div>
   </div>
-  <button class="btn btn-success w-50 mx-auto mt-auto mb-3" (click)="addToCart(productItem)">Add to Cart</button>
+  <button class="btn btn-success w-50 mx-auto mt-auto mb-3" (click)="addToCart(productItem)" [disabled]="!authorized">Add to Cart</button>
 </div>

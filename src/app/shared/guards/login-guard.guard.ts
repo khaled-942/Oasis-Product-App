@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserLoginService } from '../services/user-login.service';
 
@@ -8,7 +8,7 @@ import { UserLoginService } from '../services/user-login.service';
 })
 export class LoginGuardGuard implements CanActivate {
   status!: boolean;
-  constructor(private userState: UserLoginService) {
+  constructor(private userState: UserLoginService, private route:Router) {
     this.userState.userLoginObserv.subscribe((data) => { this.status = data })
   }
   canActivate(
@@ -18,7 +18,8 @@ export class LoginGuardGuard implements CanActivate {
         return true;
       }
       else {
-        alert('You Must Log In')
+        alert('You Must Log In');
+        this.route.navigate(['login'])
         return false
       }
   }

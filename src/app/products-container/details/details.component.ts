@@ -17,6 +17,7 @@ export class DetailsComponent implements OnInit {
     this.activeRouter.params.subscribe((params: any) => {
       this.id = params.id;
       this.productsServiece.getProductsById(this.id).subscribe((products) => {
+        console.log(products)
         this.productList = products;
       })
     });

@@ -7,6 +7,7 @@ import { ItemComponent } from './item/item.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { LoaderComponent } from './loader/loader.component';
+import { AlertsComponent } from './alerts/alerts.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { LoaderComponent } from './loader/loader.component';
     ItemComponent,
     ProductsListComponent,
     LoaderComponent,
+    AlertsComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { LoaderComponent } from './loader/loader.component';
     ItemComponent,
     ProductsListComponent,
     LoaderComponent,
+    AlertsComponent,
   ]
 })
 export class ProductsContainerModule { }
