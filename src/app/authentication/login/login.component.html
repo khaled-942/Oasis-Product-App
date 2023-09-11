@@ -4,28 +4,28 @@
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" [ngClass]="{'is-valid':controls.logInEmail.valid}" class="form-control"
-        id="exampleInputEmail1" aria-describedby="emailHelp" name="logInEmail" formControlName="logInEmail">
+        id="exampleInputEmail1" aria-describedby="emailHelp" name="logInEmail" placeholder="example@example.exam" formControlName="logInEmail">
       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      <div>
-        <small *ngIf="controls.logInEmail.errors?.required && controls.logInEmail.touched">
+      <div class="d-flex flex-column gap-2">
+        <small class="text-danger" *ngIf="controls.logInEmail.errors?.required && controls.logInEmail.touched">
           the emil is Required
         </small>
-        <small *ngIf="controls.logInEmail.errors?.required && controls.logInEmail.touched">
+        <small class="text-danger" *ngIf="controls.logInEmail.errors?.pattern && controls.logInEmail.touched">
           the emil is incorrect
         </small>
       </div>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" name="logInPassword"
+      <input type="password" [ngClass]="{'is-valid':controls.logInPassword.valid}" class="form-control" id="exampleInputPassword1" name="logInPassword"
         formControlName="logInPassword">
-      <div id="emailHelp" class="form-text">Password has a minimum of 6 characters, at least 1 uppercase letter, 1
+      <div id="emailHelp" class="form-text text-warning">Password has a minimum of 6 characters, at least 1 uppercase letter, 1
         lowercase letter, and 1 number with no spaces.</div>
-      <div>
-        <small *ngIf="controls.logInPassword.errors?.required && controls.logInPassword.touched">
+      <div class="d-flex flex-column gap-2">
+        <small class="text-danger" *ngIf="controls.logInPassword.errors?.required && controls.logInPassword.touched">
           the password is Required
         </small>
-        <small *ngIf="controls.logInPassword.errors?.required && controls.logInPassword.touched">
+        <small class="text-danger" *ngIf="controls.logInPassword.errors?.pattern && controls.logInPassword.touched">
           the password is incorrect
         </small>
       </div>

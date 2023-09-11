@@ -4,20 +4,46 @@
 
     <div class="mb-3">
       <label for="name" class="form-label">Full Name</label>
-      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="fname"
-        formControlName="fname" placeholder="Khaled Mohamed Khalil">
+      <input type="text" [ngClass]="{'is-valid':formControls.fname.valid}" class="form-control" id="name"
+        aria-describedby="emailHelp" name="fname" formControlName="fname" placeholder="Khaled Mohamed Khalil">
+      <div class="d-flex flex-column gap-2">
+        <small class="text-danger" *ngIf="formControls.fname.errors?.required && formControls.fname.touched">
+          the Name is Required
+        </small>
+        <small class="text-danger" *ngIf="formControls.fname.errors?.minlength && formControls.fname.touched">
+          the Name is too short
+        </small>
+      </div>
     </div>
 
     <div class="form-group d-flex gap-2">
       <div class="mb-3 w-50">
         <label for="phone" class="form-label">Phone</label>
-        <input type="phone" class="form-control" id="phone" aria-describedby="emailHelp" name="phone"
+        <input type="phone" [ngClass]="{'is-valid':formControls.phone.valid}" class="form-control" id="phone" aria-describedby="emailHelp" name="phone"
           formControlName="phone" placeholder="01201001501">
+
+        <div class="d-flex flex-column gap-2">
+          <small class="text-danger" *ngIf="formControls.phone.errors?.required && formControls.phone.touched">
+            the phone is Required
+          </small>
+          <small class="text-danger" *ngIf="formControls.phone.errors?.pattern && formControls.phone.touched">
+            the phone is Not Cleared
+          </small>
+        </div>
       </div>
       <div class="mb-3 w-50">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
+        <input type="email" [ngClass]="{'is-valid':formControls.email.valid}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
           formControlName="email" placeholder="example@gmail.com">
+
+          <div class="d-flex flex-column gap-2">
+            <small class="text-danger" *ngIf="formControls.email.errors?.required && formControls.email.touched">
+              the email is Required
+            </small>
+            <small class="text-danger" *ngIf="formControls.email.errors?.pattern && formControls.email.touched">
+              this is not right email
+            </small>
+          </div>
       </div>
 
     </div>
@@ -25,18 +51,36 @@
     <div class="form-group d-flex gap-2">
       <div class="mb-3 w-50">
         <label for="Apartment" class="form-label">Apartment</label>
-        <input type="number" class="form-control" id="Apartment" aria-describedby="emailHelp" name="apartment"
+        <input type="number" [ngClass]="{'is-valid':formControls.apartment.valid}" class="form-control" id="Apartment" aria-describedby="emailHelp" name="apartment"
           formControlName="apartment" placeholder="1">
+
+          <div class="d-flex flex-column gap-2">
+            <small class="text-danger" *ngIf="formControls.apartment.errors?.required && formControls.apartment.touched">
+              the apartment is Required
+            </small>
+            <small class="text-danger" *ngIf="formControls.apartment.errors?.maxlength && formControls.apartment.touched">
+              the apartment is appove Max
+            </small>
+          </div>
       </div>
 
       <div class="mb-3 w-50">
         <label for="Floor" class="form-label">Floor</label>
-        <input type="number" class="form-control" id="Floor" aria-describedby="emailHelp" name="floor"
+        <input type="number" [ngClass]="{'is-valid':formControls.floor.valid}" class="form-control" id="Floor" aria-describedby="emailHelp" name="floor"
           formControlName="floor" placeholder="1">
+
+          <div class="d-flex flex-column gap-2">
+            <small class="text-danger" *ngIf="formControls.floor.errors?.required && formControls.floor.touched">
+              the floor is Required
+            </small>
+            <small class="text-danger" *ngIf="formControls.floor.errors?.maxlength && formControls.floor.touched">
+              the floor is appove Max
+            </small>
+          </div>
       </div>
 
       <div class="mb-3 w-50">
-        <label for="Post" class="form-label">Postal Code</label>
+        <label for="Post" [ngClass]="{'is-valid':formControls.post.valid}" class="form-label">Postal Code (Optional)</label>
         <input type="number" class="form-control" id="Post" aria-describedby="emailHelp" name="post"
           formControlName="post" placeholder="54321">
       </div>
@@ -59,12 +103,13 @@
 
     </div>
 
-    <div class="cont d-flex flex-column align-items-center justify-content-center w-100" formArrayName="formArrayAddress">
+    <div class="cont d-flex flex-column align-items-center justify-content-center w-100"
+      formArrayName="formArrayAddress">
       <div class="cont1 w-100" *ngFor="let oneAddress of adds.controls; let i = index">
         <div class="mb-3 parentAdd">
           <label for="exampleInputPassword1" *ngIf="i == 0 ; else another" class="form-label">Address</label>
           <ng-template #another>
-            <label for="exampleInputPassword1" class="form-label newAdd">Address {{i + 1}}</label>
+            <label for="exampleInputPassword1" class="form-label newAdd">Address {{i + 1}} (Optional)</label>
           </ng-template>
           <div class="inputPlusIcon d-flex gap-2 align-items-center justify-content-center">
             <input type="text" class="form-control" id="inputPlusIcon{{ i }}" formControlName="{{ i }}" />
@@ -74,7 +119,6 @@
       </div>
       <i class="bi bi-plus-circle text-primary text-center mb-2 fs-4 pointer" (click)="addNewAddress()"></i>
     </div>
-
     <button type="submit" class="btn btn-primary" [disabled]="chechOutForm.invalid">Submit</button>
   </form>
 </div>

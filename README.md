@@ -1,27 +1,32 @@
-# OasisProductApp
+# Oasis Products App Task
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
+This project was generated to view and buy the products from the store and show its Details.
+For adding some Products in your cart you shuld log In first.
+Then after fill the Cart with your needs go to cart and preview the selected products then you can go forward and check them out by add some Informations about the user and its address 
 
-## Development server
+## Development server & Run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`
+Run `npm run json:server` to run the local Json Server
 
-## Code scaffolding
+## Code Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Generate Componants, Services, Pipes, BehaviorSubjects, Json-server, Interceptor, Guards and Some Modules to Classify and organize the  Structure
+`Shared` File Contain Most of `Reusable` Features
+use some `Operators` from `rxjs`
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Libiraries
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Bootstrap and Bootstrap-icons => For styling
 
-## Running end-to-end tests
+## Comming Soon
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+schedule Orders Time to Recive
+wishList Page 
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## End
+Thanks For the opportunity, hope to contact you soon

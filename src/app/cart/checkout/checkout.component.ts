@@ -16,7 +16,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.chechOutForm = this.fb.group({
-      fname: [null, [Validators.required]],
+      fname: [null, [Validators.required,Validators.minLength(5)]],
       apartment: [null, [Validators.required,Validators.maxLength(2)]],
       floor: [null, [Validators.required,Validators.maxLength(2)]],
       post: [null],
@@ -32,7 +32,6 @@ export class CheckoutComponent implements OnInit {
     this.cartService.setCartLengthVal(0);
     this.cartService.removeAllCart();
     this.cartService.toggleFlag(true);
-    console.log(this.chechOutForm.value)
     this.route.navigate(['/cart'])
   }
 
@@ -41,7 +40,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   addNewAddress(){
-    const addInput = new FormControl(null,[Validators.required])
+    const addInput = new FormControl(null)
     this.adds.push(addInput);
     
   }
