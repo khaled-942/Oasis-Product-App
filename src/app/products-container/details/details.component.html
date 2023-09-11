@@ -1,18 +1,27 @@
 <app-loader></app-loader>
 <app-alerts></app-alerts>
 <div class="container p-5">
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img [src]="productList?.image" class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">{{productList?.title}}</h5>
-          <p class="card-text">{{productList?.description}}</p>
-          <p class="card-text"><small class="text-muted">{{productList?.price | currency}}</small></p>
-        </div>
+  <div class="d-flex gap-5 flex-wrap flex-lg-nowrap justify-content-center">
+    <img [src]="productList?.image" class="img-fluid w-50 rounded-start" alt="...">
+    <div class="d-flex flex-column gap-3 ">
+      <h5 class="card-title">{{productList?.title}}</h5>
+      <hr class="w-75">
+      <div class="deals">
+        <h2>About this item</h2>
+        <p class="card-text">{{productList?.description}}</p>
+        <p class="card-text"><small class="text-muted">Price: {{productList?.price | currency}}</small></p>
+        <p class="card-text"><small class="text-muted">in-stock: {{productList?.stock}}</small></p>
+        <p class="card-text"><small class="text-muted">category: {{productList?.category}}</small></p>
+        <p class="card-text"><small class="text-muted">Seller: By Oasis <i class="bi bi-check-circle-fill text-success"></i></small></p>
+        <p class="card-text"><small class="text-muted">
+          Rating 
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </small></p>
+
       </div>
     </div>
+
   </div>
 </div>

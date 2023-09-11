@@ -1,6 +1,6 @@
 <app-loader></app-loader>
 <ng-container *ngIf="products.length !=0;else empty">
-  <div class="container-fluid p-4">
+  <div class="container-fluid p-4 scrollTable">
     <table class="table table-responsive">
       <thead>
         <tr>
@@ -17,14 +17,14 @@
       <tbody>
         <tr *ngFor="let item of products; let i = index">
           <td>{{i+1}}</td>
-          <td class="leftTextAlign">{{item.title}}</td>
+          <td class="leftTextAlign custom-mx2">{{item.title}}</td>
           <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
-          <td class="leftTextAlign">{{item.description}}</td>
-          <th style="width: 12%;">{{item.price}}</th>
-          <td style="width: 12%;">
+          <td class="leftTextAlign custom-mx">{{item.description}}</td>
+          <th>{{item.price}}</th>
+          <td>
             <button class="me-1 btn" (click)="minus(item.id)"><i class="bi bi-dash"></i></button>{{item.quantity}}
             <button class="ms-1 btn" (click)="plus(item.id)"><i class="bi bi-plus"></i></button></td>
-          <td style="width: 12%;">{{item.total}}</td>
+          <td>{{item.total}}</td>
           <td>
             <button (click)="removeItem(item)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
           </td>
@@ -32,7 +32,7 @@
         <tr>
           <td colspan="3" class="border-0"><button (click)="emptycart()" class="btn btn-danger w-100">Empty
               Cart</button></td>
-          <td colspan="2" class="border-0"><button class="btn btn-success w-100" (click)="Checkout()">Checkout</button>
+          <td colspan="2" class="border-0"><button class="btn btn-success w-100" (click)="goTo('cart/checkout')">Checkout</button>
           </td>
           <td colspan="3"><strong>Grand Total : ${{grandTotal}}</strong></td>
         </tr>
@@ -44,10 +44,10 @@
 
 
 <ng-template #empty>
-  <div class="container align-items-center justify-content-evenly flex-column d-flex vh-100">
+  <div class="container align-items-center justify-content-evenly flex-column d-flex gap-3 p-3">
     <img src="../../../assets/images/empty.png" class="img-fluid" alt="Cart Empty">
     <h4>Your cart is empty!</h4>
     <h6>Add item to it now</h6>
-    <a class="btn btn-primary" type="button">Shop Now</a>
+    <a class="btn btn-primary" type="button" (click)="goTo('store')">Shop Now</a>
   </div>
 </ng-template>

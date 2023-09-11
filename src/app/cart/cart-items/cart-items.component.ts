@@ -40,7 +40,7 @@ export class CartItemsComponent implements OnInit {
     this.cartService.increaseItem(id);
     this.cartService.setCartLengthVal(++this.quantityCount);
   }
-  Checkout() {
-    this.route.navigate(['cart/checkout']);
+  goTo(str:string) {
+    this.route.navigate([str]);
   }
 }
