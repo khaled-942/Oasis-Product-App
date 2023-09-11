@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserLoginService {
-  userLogin = new BehaviorSubject(true);
+  userLogin = new BehaviorSubject(false);
   userLoginObserv = this.userLogin.asObservable()
   constructor() { }
   changeLoginState(state: boolean) {
