@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class SearchService {
   searchText = new BehaviorSubject('');
   searchTextobserv = this.searchText.asObservable();
-  searchitems = new BehaviorSubject(0);
+  searchitems = new BehaviorSubject(1);
   searchItemsobserv = this.searchitems.asObservable();
   constructor() { }
   setSearchText(text: string) {
