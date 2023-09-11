@@ -3,6 +3,9 @@
     You should log-in for more experiences!
   </div>
   <div class="alert alert-danger pointer" role="alert" (click)="toLogIn()" *ngIf="empty">
-    There is no items with  this name
+    There is no items with this name
+  </div>
+  <div class="alert alert-success pointer" role="alert" (click)="toggleOrderFlag()" *ngIf="orderPlaced">
+    Your order is placed successfully
   </div>
 </div>

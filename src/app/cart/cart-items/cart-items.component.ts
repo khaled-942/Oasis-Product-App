@@ -11,7 +11,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
 export class CartItemsComponent implements OnInit {
   public products!: Product[];
   public grandTotal!: number;
-  quantityCount!: number
+  quantityCount!: number;
   constructor(private cartService: CartService, private route: Router) { }
 
   ngOnInit(): void {

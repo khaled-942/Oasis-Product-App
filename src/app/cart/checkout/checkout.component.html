@@ -1,5 +1,7 @@
 <div class="container p-5">
-  <form [formGroup]="chechOutForm" (ngSubmit)="checkout()" class="w-75 d-flex flex-column">
+  <h2 class="text-center mb-3">Billing Informations </h2>
+  <form [formGroup]="chechOutForm" (ngSubmit)="checkout()" class="d-flex flex-column editViews">
+
     <div class="mb-3">
       <label for="name" class="form-label">Full Name</label>
       <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="fname"
@@ -20,8 +22,45 @@
 
     </div>
 
-    <div class="cont" formArrayName="formArrayAddress">
-      <div class="cont1" *ngFor="let oneAddress of adds.controls; let i = index">
+    <div class="form-group d-flex gap-2">
+      <div class="mb-3 w-50">
+        <label for="Apartment" class="form-label">Apartment</label>
+        <input type="number" class="form-control" id="Apartment" aria-describedby="emailHelp" name="apartment"
+          formControlName="apartment" placeholder="1">
+      </div>
+
+      <div class="mb-3 w-50">
+        <label for="Floor" class="form-label">Floor</label>
+        <input type="number" class="form-control" id="Floor" aria-describedby="emailHelp" name="floor"
+          formControlName="floor" placeholder="1">
+      </div>
+
+      <div class="mb-3 w-50">
+        <label for="Post" class="form-label">Postal Code</label>
+        <input type="number" class="form-control" id="Post" aria-describedby="emailHelp" name="post"
+          formControlName="post" placeholder="54321">
+      </div>
+
+    </div>
+
+    <div class="form-group d-flex gap-2">
+      <div class="mb-3 w-50">
+        <label for="price" class="form-label">Total Price</label>
+        <input type="text" disabled [value]="totalPrice" id="price" class="form-control">
+      </div>
+      <div class="mb-3 w-50">
+        <label for="itemcounter" class="form-label">Items</label>
+        <input type="text" disabled [value]="itemcounter" id="itemcounter" class="form-control">
+      </div>
+      <div class="mb-3 w-50">
+        <label for="discount" class="form-label">Discount</label>
+        <input type="text" disabled [value]="'0 EGP'" id="discount" class="form-control">
+      </div>
+
+    </div>
+
+    <div class="cont d-flex flex-column align-items-center justify-content-center w-100" formArrayName="formArrayAddress">
+      <div class="cont1 w-100" *ngFor="let oneAddress of adds.controls; let i = index">
         <div class="mb-3 parentAdd">
           <label for="exampleInputPassword1" *ngIf="i == 0 ; else another" class="form-label">Address</label>
           <ng-template #another>
@@ -29,13 +68,12 @@
           </ng-template>
           <div class="inputPlusIcon d-flex gap-2 align-items-center justify-content-center">
             <input type="text" class="form-control" id="inputPlusIcon{{ i }}" formControlName="{{ i }}" />
-            <i *ngIf="i" class="bi bi-trash text-danger" (click)="delSpecAddress(i)"></i>
+            <i *ngIf="i" class="bi bi-trash text-danger pointer" (click)="delSpecAddress(i)"></i>
           </div>
         </div>
       </div>
-      <i class="bi bi-plus-circle text-primary text-center" (click)="addNewAddress()"></i>
+      <i class="bi bi-plus-circle text-primary text-center mb-2 fs-4 pointer" (click)="addNewAddress()"></i>
     </div>
-
 
     <button type="submit" class="btn btn-primary" [disabled]="chechOutForm.invalid">Submit</button>
   </form>

@@ -11,8 +11,7 @@ export class LoaderComponent implements OnInit {
   constructor(private LoaderstatusServices: LoaderstatusService) { }
 
   ngOnInit(): void {
-    this.LoaderstatusServices.pageLoadedObserv.subscribe((data) => {console.log(data) 
-      this.isLoaded = data })
+    this.LoaderstatusServices.pageLoadedObserv.subscribe((data) => { this.isLoaded = data })
   }
 
 }

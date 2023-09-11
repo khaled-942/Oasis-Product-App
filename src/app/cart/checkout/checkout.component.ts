@@ -10,21 +10,28 @@ import { CartService } from 'src/app/shared/services/cart.service';
 })
 export class CheckoutComponent implements OnInit {
   chechOutForm: FormGroup | any
-  totalPrice!:number
+  totalPrice:number = 0
+  itemcounter!:number
   constructor(private fb: FormBuilder, private route: Router,private cartService: CartService) { }
 
   ngOnInit(): void {
     this.chechOutForm = this.fb.group({
       fname: [null, [Validators.required]],
+      apartment: [null, [Validators.required,Validators.maxLength(2)]],
+      floor: [null, [Validators.required,Validators.maxLength(2)]],
+      post: [null],
       email: [null, [Validators.required,Validators.pattern(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i)]],
       phone: [null, [Validators.required,Validators.pattern(/^0((13|2[2-4]|3|4[05-8]|5[05]|6[24-689]|8[2468]|9[235-7])\d{7}|1[0125]\d{8})$/gm)]],
-      formArrayAddress: this.fb.array([null])
+      formArrayAddress: this.fb.array([[null,[Validators.required]]])
     })
+    this.cartService.cartLengthObserv.subscribe((data)=>{ this.itemcounter = data})
+    this.totalPrice = this.cartService.getTotalPrice();
   }
   checkout() {
     this.totalPrice = this.cartService.getTotalPrice();
     this.cartService.setCartLengthVal(0);
     this.cartService.removeAllCart();
+    this.cartService.toggleFlag(true);
     console.log(this.chechOutForm.value)
     this.route.navigate(['/cart'])
   }

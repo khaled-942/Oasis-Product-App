@@ -10,10 +10,17 @@ export class CartService {
   checkItem: any;
   private productQuantity = new BehaviorSubject([]);
   productQuantityObserv = this.productQuantity.asObservable();
+
   private cartLength = new BehaviorSubject(0);
   cartLengthObserv = this.cartLength.asObservable();
 
-  constructor() {}
+  private orderFlag = new BehaviorSubject(false);
+  orderFlagobserv = this.orderFlag.asObservable();
+
+  constructor() { }
+  toggleFlag(status: boolean) {
+    this.orderFlag.next(status)
+  }
   addtoCart(product: any) {
     this.checkItem = this.cartItemlist.findIndex(
       (obj: any) => obj.id == product.id
@@ -82,7 +89,7 @@ export class CartService {
     this.getTotalPrice();
     this.productQuantity.next(this.cartItemlist);
   }
-  setCartLengthVal(num:number){
+  setCartLengthVal(num: number) {
     this.cartLength.next(num);
   }
 }

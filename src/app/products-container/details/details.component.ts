@@ -10,15 +10,16 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 export class DetailsComponent implements OnInit {
   productList: any;
   activeItem: any;
-  id: any
+  id: any;
+  rate!:number;
   constructor(private activeRouter: ActivatedRoute, private productsServiece: ProductsService) { }
 
   ngOnInit(): void {
     this.activeRouter.params.subscribe((params: any) => {
       this.id = params.id;
       this.productsServiece.getProductsById(this.id).subscribe((products) => {
-        console.log(products)
         this.productList = products;
+        this.rate = this.productList.rating.rate * 20;
       })
     });
   }
