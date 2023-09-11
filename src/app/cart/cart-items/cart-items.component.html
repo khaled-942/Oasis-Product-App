@@ -1,46 +1,43 @@
 <app-loader></app-loader>
 <ng-container *ngIf="products.length !=0;else empty">
-  <div class="container">
-    <div class="card-table">
-      <div class="cart-product">
-        <table class="table table-responsive">
-          <thead>
-            <tr>
-              <th>Sr.No</th>
-              <th>Product Name</th>
-              <th>Product Image</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of products; let i = index">
-              <td>{{i+1}}</td>
-              <td>{{item.title}}</td>
-              <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
-              <td style="width: 25%;">{{item.description}}</td>
-              <th style="width: 12%;">{{item.price}}</th>
-              <td style="width: 12%;">
-                <button class="me-1 btn" (click)="minus(item.id)"><i class="bi bi-dash"></i></button>{{item.quantity}}
-                <button class="ms-1 btn" (click)="plus(item.id)"><i class="bi bi-plus"></i></button></td>
-              <td style="width: 12%;">{{item.total}}</td>
-              <td>
-                <button (click)="removeItem(item)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2"></td>
-              <td colspan="2"><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
-              <td colspan="1"><button class="btn btn-success" (click)="Checkout()">Checkout</button></td>
-              <td colspan="2"><strong>Grand Total : ${{grandTotal}}</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div class="container-fluid p-4">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>Sr.No</th>
+          <th>Product Name</th>
+          <th>Product Image</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of products; let i = index">
+          <td>{{i+1}}</td>
+          <td class="leftTextAlign">{{item.title}}</td>
+          <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+          <td class="leftTextAlign">{{item.description}}</td>
+          <th style="width: 12%;">{{item.price}}</th>
+          <td style="width: 12%;">
+            <button class="me-1 btn" (click)="minus(item.id)"><i class="bi bi-dash"></i></button>{{item.quantity}}
+            <button class="ms-1 btn" (click)="plus(item.id)"><i class="bi bi-plus"></i></button></td>
+          <td style="width: 12%;">{{item.total}}</td>
+          <td>
+            <button (click)="removeItem(item)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="border-0"><button (click)="emptycart()" class="btn btn-danger w-100">Empty
+              Cart</button></td>
+          <td colspan="2" class="border-0"><button class="btn btn-success w-100" (click)="Checkout()">Checkout</button>
+          </td>
+          <td colspan="3"><strong>Grand Total : ${{grandTotal}}</strong></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </ng-container>
 

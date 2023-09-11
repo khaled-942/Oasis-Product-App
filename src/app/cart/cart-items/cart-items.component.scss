@@ -1,3 +1,23 @@
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
     border-color: transparent !important;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    padding: 1rem;
+    border-width: 1px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.leftTextAlign {
+    text-align: left !important;
 }
