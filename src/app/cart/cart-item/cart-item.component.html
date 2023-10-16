@@ -1,0 +1,13 @@
+<td>#</td>
+<td class="leftTextAlign custom-mx2">{{cartRow.title}}</td>
+<td><img style="width: 120px;" src="{{cartRow.image}}" alt=""></td>
+<td class="leftTextAlign custom-mx">{{cartRow.description}}</td>
+<th>{{cartRow.price}}</th>
+<td>
+    <button class="me-1 btn" (click)="minus(cartRow.id)"><i class="bi bi-dash"></i></button>{{cartRow.quantity}}
+    <button class="ms-1 btn" (click)="plus(cartRow.id)"><i class="bi bi-plus"></i></button>
+</td>
+<td>{{cartRow.total}}</td>
+<td>
+    <button (click)="removeItem(cartRow)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+</td>

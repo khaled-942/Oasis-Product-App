@@ -15,20 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of products; let i = index">
-          <td>{{i+1}}</td>
-          <td class="leftTextAlign custom-mx2">{{item.title}}</td>
-          <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
-          <td class="leftTextAlign custom-mx">{{item.description}}</td>
-          <th>{{item.price}}</th>
-          <td>
-            <button class="me-1 btn" (click)="minus(item.id)"><i class="bi bi-dash"></i></button>{{item.quantity}}
-            <button class="ms-1 btn" (click)="plus(item.id)"><i class="bi bi-plus"></i></button></td>
-          <td>{{item.total}}</td>
-          <td>
-            <button (click)="removeItem(item)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-          </td>
-        </tr>
+        <tr app-cart-item *ngFor="let item of products; let i = index" [cartRow]="item"></tr>
         <tr>
           <td colspan="3" class="border-0"><button (click)="emptycart()" class="btn btn-danger w-100">Empty
               Cart</button></td>
